@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "./routes";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   return (
@@ -9,7 +10,12 @@ export default function App() {
         <Route
           key={path}
           path={path}
-          element={ <Element /> }
+          element={ 
+            <>
+              <Element /> 
+              <Footer />
+            </>
+          }
         />
       ))}
     </Routes>

@@ -1,0 +1,8 @@
+.footer {
+  border: 1px solid red;
+  font-size: larger;
+}
+
+.footer span {
+  font-weight: bolder;
+}
