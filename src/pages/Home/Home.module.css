@@ -1,8 +1,19 @@
 .container {
-  max-width: 1100px;
+  max-width: var(--container-max);
   margin: 0 auto;
 
   border: 1px solid red;
   border-top: none;
   border-bottom: none;
+}
+
+.container > * {
+  border: 1px solid black;
+  min-height: 50vh;
+}
+
+@media (min-width: 768px) and (max-width: 1240px) {
+  .container {
+    padding-inline: var(--container-padding);
+  }
 }
