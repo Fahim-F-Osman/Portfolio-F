@@ -45,6 +45,12 @@ export type ContactItem = {
   icon: string;
 };
 
+export type Section = {
+  id: string;
+  label: string;
+  icon: string;
+};
+
 export type Data = {
   hero: Hero;
   about: string[];
@@ -58,6 +64,7 @@ export type Data = {
 export type DataContextType = {
   data: Data;
   setData: (value: Data) => void;
+  sections: Section[];
 };
 
 export const DataContext = createContext<DataContextType | undefined>(undefined);

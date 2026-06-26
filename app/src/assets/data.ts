@@ -1,5 +1,14 @@
 export const maxVisibleTechStack = 4;
 
+export const sections = [
+  { id: "hero", icon: "🏠", label: "Home" },
+  { id: "about", icon: "👤", label: "About" },
+  { id: "skills", icon: "🛠️", label: "Skills" },
+  { id: "projects", icon: "💻", label: "Projects" },
+  { id: "resume", icon: "📄", label: "Resume" },
+  { id: "contact", icon: "✉️", label: "Contact" },
+];
+
 export const data = {
   hero: {
     eyebrow: "Portfolio · 2024",

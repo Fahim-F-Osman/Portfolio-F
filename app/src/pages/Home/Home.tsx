@@ -7,14 +7,18 @@ import ResumeSection from "./ResumeSection/ResumeSection";
 import ContactSection from "./ContactSection/ContactSection";
 
 import { useData } from "@/context/data/useData";
+import LeftNavbar from "@/components/Navbars/Leftnavbar";
+
 
 export default function Home() {
-  const { data } = useData();
+  const { data, sections } = useData();
   const hero = data.hero;
 
   return (
     <main className={styles.container}>
-      <aside className={styles.leftNav}>Left Nav</aside>
+      <aside className={styles.leftNav}>
+        <LeftNavbar sections={sections}/>
+      </aside>
 
       <section id="hero" className={styles.hero}>
         <p className={styles.eyebrow}>{hero?.eyebrow}</p>
