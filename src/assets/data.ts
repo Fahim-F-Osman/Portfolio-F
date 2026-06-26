@@ -1,7 +1,9 @@
+export const maxVisibleTechStack = 4;
+
 export const data = {
   hero: {
     eyebrow: "Portfolio · 2024",
-    name: "First Last",
+    name: "First-Name Last-Name",
     role: "Software Engineering Student",
     tagline:
       "I enjoy building modular, service-oriented software that is easy to maintain and evolve.",
@@ -14,6 +16,11 @@ export const data = {
     "I’ve worked on personal projects such as quiz games, end-to-end encrypted messaging applications, and basic e-commerce platforms,\
       focusing on making them functional, clean, and easy to reason about.",
     "I focus on keeping software simple, smooth, and easy to maintain as it grows.",
+  ],
+  aboutHighlights: [
+    { stat: "4th", description: "Year CS Student" },
+    { stat: "Built", description: "Multiple Personal Projects" },
+    { stat: "Learning", description: "Building Scalable Web Apps" },
   ],
   skills: [
     {
@@ -77,9 +84,10 @@ export const data = {
     {
       title: "E2EE Messaging App",
       summary: "A real-time messaging application with end-to-end encryption.",
-      description: "... Some Description",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam corporis nam saepe! Excepturi esse, qui, illum assumenda sequi tenetur autem atque deserunt aspernatur officiis eum itaque. Vel assumenda adipisci perspiciatis. AGAIN: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam corporis nam saepe! Excepturi esse, qui, illum assumenda sequi tenetur autem atque deserunt aspernatur officiis eum itaque. Vel assumenda adipisci perspiciatis.",
       icon: "🔒",
-      techStack: ["React", "Node.js", "MongoDB"],
+      techStack: ["Content System", "Amazon AWS", "React", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB"],
+      maxVisible: maxVisibleTechStack,
     },
 
     {
@@ -88,6 +96,7 @@ export const data = {
       description: "... Some Description",
       icon: "🎮",
       techStack: ["React", "PostgreSQL"],
+      maxVisible: maxVisibleTechStack,
     },
 
     {
@@ -96,6 +105,7 @@ export const data = {
       description: "... Some Description",
       icon: "🛒",
       techStack: ["React", "Express.js"],
+      maxVisible: maxVisibleTechStack,
     },
   ],
   resume: {
@@ -108,21 +118,22 @@ export const data = {
       label: "Email",
       value: "alex.morgan@university.edu",
       href: "mailto:alex.morgan@university.edu",
-      icon: "Mail",
+      icon: "M",
     },
     {
       type: "github",
       label: "GitHub",
       value: "github.com/username",
       href: "https://github.com/username",
-      icon: "Github",
+      icon: "G",
     },
     {
       type: "linkedin",
       label: "LinkedIn",
       value: "linkedin.com/in/username",
       href: "https://linkedin.com/in/username",
-      icon: "Linkedin",
+      icon: "L",
     },
   ],
 };
+

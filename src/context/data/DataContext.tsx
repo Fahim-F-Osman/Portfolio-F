@@ -7,6 +7,11 @@ export type Hero = {
   tagline: string;
 };
 
+type AboutHighlight = {
+  stat: string;
+  description: string;
+};
+
 export type SkillGroup = {
   header: string;
   tools: string[];
@@ -23,6 +28,8 @@ export type Project = {
   icon?: string;
 
   techStack: string[];
+
+  maxVisible: number,
 };
 
 export type Resume = {
@@ -41,6 +48,7 @@ export type ContactItem = {
 export type Data = {
   hero: Hero;
   about: string[];
+  aboutHighlights: AboutHighlight[];
   skills: SkillGroup[];
   projects: Project[];
   resume: Resume;

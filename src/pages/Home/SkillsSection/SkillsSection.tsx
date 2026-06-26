@@ -8,11 +8,6 @@ export default function SkillsSection() {
 
   return (
     <>
-      <div>
-        <p>Skills</p>
-        <h1>Technologies & Tools</h1>
-      </div>
-
       <div className={styles.cardList}>
         {skills.map((group) => (
           <div key={group.header} className={styles.card}>

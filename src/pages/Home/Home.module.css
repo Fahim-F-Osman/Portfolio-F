@@ -1,19 +1,130 @@
 .container {
-  max-width: var(--container-max);
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding: 0 var(--space-6);
+}
 
-  border: 1px solid red;
-  border-top: none;
+.container > section {
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--border);
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container > section:last-child {
   border-bottom: none;
 }
 
-.container > * {
-  border: 1px solid black;
-  min-height: 50vh;
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--space-4);
+
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-7);
 }
 
-@media (min-width: 768px) and (max-width: 1240px) {
+.about,
+.skills,
+.projects,
+.contact,
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.contact,
+.resume {
+  min-height: 80vh;
+  min-width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--fs-2xl);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-xs);
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.subtext {
+  font-size: var(--fs-lg);
+  color: var(--text-secondary);
+  line-height: 2;
+  max-width: 60ch;
+}
+
+.leftNav,
+.rightNav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 1000;
+
+  padding: 14px 10px;
+  border-radius: 16px;
+
+  background: var(--glass);
+  border: 1px solid var(--border-glass);
+
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+
+  box-shadow: var(--shadow-md);
+}
+
+.leftNav {
+  left: 18px;
+  gap: 14px;
+}
+
+.rightNav {
+  right: 18px;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
   .container {
-    padding-inline: var(--container-padding);
+    padding-left: var(--nav-width);
+    padding-right: var(--nav-width);
+  }
+}
+
+@media (max-width: 768px) {
+  .leftNav,
+  .rightNav {
+    display: none;
   }
 }
