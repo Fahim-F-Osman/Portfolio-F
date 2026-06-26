@@ -123,6 +123,20 @@ export const data = {
   },
   contact: [
     {
+      type: "resume",
+      label: "Resume",
+      value: "Resume",
+      href: "#",
+      icon: "R",
+    },
+    {
+      type: "leetcode",
+      label: "Leetcode",
+      value: "Leetcode",
+      href: "#",
+      icon: "L",
+    },
+    {
       type: "email",
       label: "Email",
       value: "alex.morgan@university.edu",

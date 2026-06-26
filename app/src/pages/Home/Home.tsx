@@ -8,6 +8,7 @@ import ContactSection from "./ContactSection/ContactSection";
 
 import { useData } from "@/context/data/useData";
 import LeftNavbar from "@/components/Navbars/Leftnavbar";
+import RightNavbar from "@/components/Navbars/Rightnavbar";
 
 
 export default function Home() {
@@ -65,7 +66,9 @@ export default function Home() {
         <ContactSection />
       </section>
 
-      <aside className={styles.rightNav}>Right Nav</aside>
+      <aside className={styles.rightNav}>
+        <RightNavbar />
+      </aside>
     </main>
   );
 }

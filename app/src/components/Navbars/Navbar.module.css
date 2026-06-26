@@ -1,0 +1,250 @@
+/* ────────────────
+   LEFT NAV
+──────────────── */
+.leftNav {
+  position: fixed;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  z-index: 1000;
+
+  padding: 14px 10px;
+  border-radius: 16px;
+
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-md);
+}
+
+/* ────────────────
+   RIGHT NAV
+──────────────── */
+.rightNav {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  z-index: 1000;
+
+  padding: 14px 10px;
+  border-radius: 16px;
+
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-md);
+}
+
+/* ────────────────
+   ICON BUTTON
+──────────────── */
+.iconBtn {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+
+  color: var(--t1);
+  font-size: 18px;
+
+  cursor: pointer;
+  position: relative;
+
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.iconBtn:hover {
+  transform: translateY(-3px);
+  background: var(--glass-strong);
+  border-color: var(--accent-border);
+}
+
+/* ────────────────
+   TOOLTIP
+──────────────── */
+.tooltip {
+  position: absolute;
+  left: 54px;
+
+  background: var(--surface);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--t1);
+  font-family: Inter, system-ui, sans-serif;
+
+  white-space: nowrap;
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.iconBtn:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rightNav .tooltip {
+  left: auto;
+  right: 54px;
+  transform: translateX(4px);
+}
+
+/* ────────────────
+   PILL NAV (MOBILE)
+──────────────── */
+.pillNav {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+
+  background: var(--glass-strong);
+  border: 1px solid var(--border-glass);
+  border-radius: 999px;
+
+  backdrop-filter: var(--blur-strong);
+  -webkit-backdrop-filter: var(--blur-strong);
+
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* arrows */
+.pillArrow {
+  background: none;
+  border: none;
+
+  color: var(--t1);
+  font-size: 22px;
+
+  padding: 10px 14px;
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.pillArrow:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+
+.pillArrow:not(:disabled):hover {
+  color: var(--accent);
+}
+
+/* label */
+.pillLabel {
+  background: none;
+  border: none;
+
+  border-left: 1px solid var(--border-glass);
+  border-right: 1px solid var(--border-glass);
+
+  color: var(--t1);
+  font-size: 13px;
+  font-family: Inter, system-ui, sans-serif;
+
+  padding: 10px 16px;
+  min-width: 130px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.pillCaret {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* dropdown */
+.pillDropdown {
+  list-style: none;
+  width: 180px;
+
+  background: var(--surface);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.pillOption {
+  padding: 11px 16px;
+  font-size: 13px;
+  font-family: Inter, system-ui, sans-serif;
+
+  color: var(--muted);
+  cursor: pointer;
+
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pillOption:hover {
+  background: var(--glass);
+  color: var(--t1);
+}
+
+.pillOptionActive {
+  background: var(--accent-bg);
+  color: var(--t1);
+}
+
+/* ────────────────
+   RESPONSIVE
+──────────────── */
+@media (max-width: 768px) {
+  .leftNav,
+  .rightNav {
+    display: none;
+  }
+
+  .pillNav {
+    display: flex;
+  }
+}
