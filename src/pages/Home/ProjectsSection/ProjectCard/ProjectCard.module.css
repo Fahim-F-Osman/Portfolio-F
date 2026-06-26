@@ -1,0 +1,94 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-2);
+}
+
+
+.title {
+  font-size: var(--fs-2xl);
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary {
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  max-width: 55ch;
+  width: 100%;
+  margin-top: var(--space-2);
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+}
+
+.description {
+  padding-top: var(--space-4);
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+  line-height: 1.65;
+
+  max-width: 60ch;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+
+  overflow: hidden;
+
+  word-break: break-word;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.techTag {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+
+  background: var(--raised);
+  color: var(--text-secondary);
+
+  border: 1px solid var(--border);
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.techTag:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
