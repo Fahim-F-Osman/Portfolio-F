@@ -1,0 +1,78 @@
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.pageBtn {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.pageBtn:not(.dotsBtn):not(.activePage):hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pageBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.activePage {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow:
+    -2px -2px 0 rgba(255, 255, 255, 0.25),
+    2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dotsBtn {
+  color: var(--text-muted);
+  cursor: default;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.navBtn {
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  font-family: var(--font-body);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navBtn:hover {
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
