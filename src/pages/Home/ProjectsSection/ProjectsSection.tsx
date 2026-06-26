@@ -1,35 +1,57 @@
 import { useData } from "@/context/data/useData";
-import styles from "./ProjectsSection.module.css"
+import styles from "./ProjectsSection.module.css";
+import { useState } from "react";
+import ProjectPagination from "./ProjectPagination/ProjectPagination";
+import ProjectCard from "./ProjectCard/ProjectCard";
 
 export default function ProjectsSection() {
   const { data } = useData();
 
+  const [page, setPage] = useState(1);
+  const pageSize = 2;
+
+  const projects = data.projects;
+
+  const totalPages = Math.ceil(projects.length / pageSize);
+
+  const paginatedProjects = projects.slice(
+    (page - 1) * pageSize,
+    page * pageSize
+  );
+
   return (
-    <>
-      <p>Projects</p>
-      <h2>Selected Work</h2>
+    <div className={styles.projectContainer}>
+      <div className={styles.projectList}>
+        {paginatedProjects.map((project) => {
+          const maxVisibleTech = project.maxVisible ?? 3;
 
-      <div className={styles.cardList}>
-        {data.projects.map((project) => (
-          <article key={project.title}>
-            <h3>
-              {project.icon} {project.title}
-            </h3>
+          const visibleTech = project.techStack.slice(0, maxVisibleTech);
+          const hiddenCount = project.techStack.length - maxVisibleTech;
 
-            <p>{project.summary}</p>
+          return (
+            <article key={project.title} className={styles.eachProject}>
+              <ProjectCard
+                title={project.title}
+                summary={project.summary}
+                description={project.description}
+                visibleTech={visibleTech}
+                hiddenCount={hiddenCount}
+              />
 
-            <p>{project.description}</p>
-
-            <div>
-              {project.techStack.map((tech) => (
-                <span key={tech}>
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
+              <div className={styles.footer}>
+                <span className={styles.footerLabel}>View Details</span>
+                <span className={styles.arrow}>→</span>
+              </div>
+            </article>
+          );
+        })}
       </div>
-    </>
+
+      <ProjectPagination
+        page={page}
+        totalPages={totalPages}
+        setPage={setPage}
+      />
+    </div>
   );
 }

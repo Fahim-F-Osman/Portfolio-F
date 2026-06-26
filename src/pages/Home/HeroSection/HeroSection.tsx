@@ -1,4 +1,5 @@
 import { useData } from "@/context/data/useData"
+import styles from "./HeroSection.module.css"
 
 export default function HeroSection() {
   const { data } = useData();
@@ -6,19 +7,17 @@ export default function HeroSection() {
 
   return (
     <>
-      <p className="eyebrow">{hero?.eyebrow}</p>
+      <h1 className={styles.name}>{hero?.name}</h1>
 
-      <h1 className="name">{hero?.name}</h1>
+      <p className={styles.role}>{hero?.role}</p>
 
-      <p className="role">{hero?.role}</p>
+      <p className={styles.tagline}>{hero?.tagline}</p>
 
-      <p className="tagline">{hero?.tagline}</p>
-
-      <div className="cta">
-        <a href="#projects" className="btn primary">
+      <div className={styles.cta}>
+        <a href="#projects" className={`${styles.btn} ${styles.primary}`}>
           View Work →
         </a>
-        <a href="#contact" className="btn secondary">
+        <a href="#contact" className={`${styles.btn} ${styles.secondary}`}>
           Get in Touch
         </a>
       </div>
