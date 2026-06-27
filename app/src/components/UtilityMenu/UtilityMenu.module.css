@@ -1,0 +1,92 @@
+.container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-2);
+
+  padding: var(--space-1) var(--space-2);
+
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-full);
+
+  box-shadow: var(--shadow-md);
+}
+
+.container > button {
+  width: 36px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius-full);
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.container > button > svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+
+  transition: color var(--transition-fast);
+}
+
+.container > button:hover {
+  transform: translateY(-2px);
+  background: var(--surface);
+  border-color: var(--border-glass);
+  box-shadow: var(--shadow-sm);
+}
+
+.container > button:hover > svg {
+  color: var(--accent);
+}
+
+.container > button:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: none;
+}
+
+.container > button svg {
+  animation: pop var(--transition-normal);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.container > .contactsButton { display: none; }
+
+
+@media (max-width: 768px) {
+  .container > .contactsButton {
+    display: flex;
+  }
+
+}
