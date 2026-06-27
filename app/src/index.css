@@ -93,6 +93,7 @@ button {
   /* -------- App backgrounds -------- */
   --bg: #fff5f7;
   --surface: #ffffff;
+  --surface-rgb: 255, 255, 255;
   --raised: #ffe8ee;
 
   /* ------------ Borders ------------ */

@@ -1,4 +1,27 @@
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaFileAlt,
+  FaHome,
+  FaUser,
+  FaFolderOpen,
+  FaLaptopCode,
+} from "react-icons/fa";
+
+import { SiLeetcode } from "react-icons/si";
+
+
 export const maxVisibleTechStack = 4;
+
+export const sections = [
+  { id: "hero", icon: FaHome, label: "Home" },
+  { id: "about", icon: FaUser, label: "About" },
+  { id: "skills", icon: FaLaptopCode, label: "Skills" },
+  { id: "projects", icon: FaFolderOpen, label: "Projects" },
+  { id: "resume", icon: FaFileAlt, label: "Resume" },
+  { id: "contact", icon: FaEnvelope, label: "Contact" },
+];
 
 export const data = {
   hero: {
@@ -112,28 +135,43 @@ export const data = {
     downloadLink: "/resume.pdf",
     fileName: "RESUME_FILE NAME",
   },
+
   contact: [
+    {
+      type: "resume",
+      label: "Resume",
+      value: "Resume",
+      href: "#",
+      icon: FaFileAlt,
+    },
+    {
+      type: "leetcode",
+      label: "LeetCode",
+      value: "LeetCode",
+      href: "#",
+      icon: SiLeetcode,
+    },
     {
       type: "email",
       label: "Email",
       value: "alex.morgan@university.edu",
       href: "mailto:alex.morgan@university.edu",
-      icon: "M",
+      icon: FaEnvelope,
     },
     {
       type: "github",
       label: "GitHub",
       value: "github.com/username",
       href: "https://github.com/username",
-      icon: "G",
+      icon: FaGithub,
     },
     {
       type: "linkedin",
       label: "LinkedIn",
       value: "linkedin.com/in/username",
       href: "https://linkedin.com/in/username",
-      icon: "L",
+      icon: FaLinkedin,
     },
-  ],
+  ]
 };
 

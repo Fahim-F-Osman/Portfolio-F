@@ -82,39 +82,6 @@
   max-width: 60ch;
 }
 
-.leftNav,
-.rightNav {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-
-  display: flex;
-  flex-direction: column;
-
-  z-index: 1000;
-
-  padding: 14px 10px;
-  border-radius: 16px;
-
-  background: var(--glass);
-  border: 1px solid var(--border-glass);
-
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-
-  box-shadow: var(--shadow-md);
-}
-
-.leftNav {
-  left: 18px;
-  gap: 14px;
-}
-
-.rightNav {
-  right: 18px;
-  gap: 12px;
-}
-
 @media (min-width: 768px) {
   .container {
     padding-left: var(--nav-width);
@@ -123,7 +90,6 @@
 }
 
 @media (max-width: 768px) {
-  .leftNav,
   .rightNav {
     display: none;
   }

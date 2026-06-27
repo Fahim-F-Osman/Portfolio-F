@@ -42,7 +42,13 @@ export type ContactItem = {
   label: string;
   value: string;
   href: string;
-  icon: string;
+  icon: React.ComponentType;
+};
+
+export type Section = {
+  id: string;
+  label: string;
+  icon: React.ComponentType;
 };
 
 export type Data = {
@@ -58,6 +64,7 @@ export type Data = {
 export type DataContextType = {
   data: Data;
   setData: (value: Data) => void;
+  sections: Section[];
 };
 
 export const DataContext = createContext<DataContextType | undefined>(undefined);

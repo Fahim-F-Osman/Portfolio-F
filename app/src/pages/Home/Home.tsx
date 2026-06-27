@@ -7,14 +7,19 @@ import ResumeSection from "./ResumeSection/ResumeSection";
 import ContactSection from "./ContactSection/ContactSection";
 
 import { useData } from "@/context/data/useData";
+import LeftNavbar from "@/components/Navbars/Leftnavbar";
+import RightNavbar from "@/components/Navbars/Rightnavbar";
+
 
 export default function Home() {
-  const { data } = useData();
+  const { data, sections } = useData();
   const hero = data.hero;
 
   return (
     <main className={styles.container}>
-      <aside className={styles.leftNav}>Left Nav</aside>
+      <aside className={styles.leftNav} aria-label="Section navigation">
+        <LeftNavbar sections={sections}/>
+      </aside>
 
       <section id="hero" className={styles.hero}>
         <p className={styles.eyebrow}>{hero?.eyebrow}</p>
@@ -61,7 +66,9 @@ export default function Home() {
         <ContactSection />
       </section>
 
-      <aside className={styles.rightNav}>Right Nav</aside>
+      <aside className={styles.rightNav} aria-label="Social links">
+        <RightNavbar />
+      </aside>
     </main>
   );
 }
