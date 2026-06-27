@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 export interface NavSection {
   id: string;
   label: string;
-  icon: string;
+  icon: React.ComponentType;
 }
 
 interface LeftNavbarProps {
@@ -19,25 +19,34 @@ export default function LeftNavbar({ sections }: LeftNavbarProps) {
   const [active, setActive] = useState<string>(sections[0]?.id ?? "");
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  // Track active section via IntersectionObserver
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const elements = sections
+      .map((s) => document.getElementById(s.id))
+      .filter(Boolean) as HTMLElement[];
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((e) => e.isIntersecting);
 
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActive(id);
-        },
-        { threshold: 0.4 }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
+        if (visibleEntries.length === 0) return;
 
-    return () => observers.forEach((o) => o.disconnect());
+        // pick most visible section
+        const best = visibleEntries.sort(
+          (a, b) => b.intersectionRatio - a.intersectionRatio
+        )[0];
+
+        if (best?.target?.id) {
+          setActive(best.target.id);
+        }
+      },
+      {
+        threshold: [0.3, 0.5, 0.7],
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, [sections]);
 
   const activeIndex = sections.findIndex((s) => s.id === active);
@@ -45,12 +54,18 @@ export default function LeftNavbar({ sections }: LeftNavbarProps) {
 
   const goPrev = useCallback(() => {
     const prev = sections[activeIndex - 1];
-    if (prev) { setActive(prev.id); scrollTo(prev.id); }
+    if (prev) {
+      setActive(prev.id);
+      scrollTo(prev.id);
+    }
   }, [activeIndex, sections]);
 
   const goNext = useCallback(() => {
     const next = sections[activeIndex + 1];
-    if (next) { setActive(next.id); scrollTo(next.id); }
+    if (next) {
+      setActive(next.id);
+      scrollTo(next.id);
+    }
   }, [activeIndex, sections]);
 
   const handleSelect = (id: string) => {
@@ -61,23 +76,30 @@ export default function LeftNavbar({ sections }: LeftNavbarProps) {
 
   return (
     <>
-      {/* Desktop: right vertical nav */}
+      {/* Desktop nav */}
       <nav className={styles.leftNav} aria-label="Section navigation">
-        {sections.map(({ id, label, icon }) => (
-          <button
-            key={id}
-            className={`${styles.iconBtn} ${active === id ? styles.active : ""}`}
-            onClick={() => { setActive(id); scrollTo(id); }}
-            aria-label={label}
-            title={label}
-          >
-            <span aria-hidden="true">{icon}</span>
-            <span className={styles.tooltip}>{label}</span>
-          </button>
-        ))}
+        {sections.map(({ id, label, icon }) => {
+          const Icon = icon;
+
+          return (
+            <button
+              key={id}
+              className={`${styles.iconBtn} ${active === id ? styles.active : ""}`}
+              onClick={() => {
+                setActive(id);
+                scrollTo(id);
+              }}
+              aria-label={label}
+              title={label}
+            >
+              <Icon aria-hidden="true" />
+              <span className={styles.tooltip}>{label} ›</span>
+            </button>
+          );
+        })}
       </nav>
 
-      {/* Mobile: bottom pill nav */}
+      {/* Mobile pill nav */}
       <nav className={styles.pillNav} aria-label="Section navigation">
         <div className={styles.pill}>
           <button
@@ -96,7 +118,9 @@ export default function LeftNavbar({ sections }: LeftNavbarProps) {
             aria-expanded={dropdownOpen}
           >
             {activeLabel}
-            <span className={styles.pillCaret}>{dropdownOpen ? "▲" : "▼"}</span>
+            <span className={styles.pillCaret}>
+              {dropdownOpen ? "▲" : "▼"}
+            </span>
           </button>
 
           <button
@@ -116,8 +140,16 @@ export default function LeftNavbar({ sections }: LeftNavbarProps) {
                 key={id}
                 role="option"
                 aria-selected={active === id}
-                className={`${styles.pillOption} ${active === id ? styles.pillOptionActive : ""}`}
+                tabIndex={0}
+                className={`${styles.pillOption} ${
+                  active === id ? styles.pillOptionActive : ""
+                }`}
                 onClick={() => handleSelect(id)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleSelect(id);
+                  }
+                }}
               >
                 {label}
               </li>

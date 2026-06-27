@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <main className={styles.container}>
-      <aside className={styles.leftNav}>
+      <aside className={styles.leftNav} aria-label="Section navigation">
         <LeftNavbar sections={sections}/>
       </aside>
 
@@ -66,7 +66,7 @@ export default function Home() {
         <ContactSection />
       </section>
 
-      <aside className={styles.rightNav}>
+      <aside className={styles.rightNav} aria-label="Social links">
         <RightNavbar />
       </aside>
     </main>

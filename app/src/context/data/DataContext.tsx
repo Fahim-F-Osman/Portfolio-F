@@ -42,13 +42,13 @@ export type ContactItem = {
   label: string;
   value: string;
   href: string;
-  icon: string;
+  icon: React.ComponentType;
 };
 
 export type Section = {
   id: string;
   label: string;
-  icon: string;
+  icon: React.ComponentType;
 };
 
 export type Data = {

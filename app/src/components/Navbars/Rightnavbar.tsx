@@ -6,7 +6,7 @@ type ContactItem = {
   label: string;
   value: string;
   href: string;
-  icon: string;
+  icon: React.ComponentType;
 };
 
 export default function RightNavbar() {
@@ -17,7 +17,7 @@ export default function RightNavbar() {
     <nav className={styles.rightNav} aria-label="Social links">
       {contact.map((each: ContactItem) => {
         const isExternal = each.href.startsWith("http");
-
+        const Icon = each.icon;
         return (
           <a
             key={each.label}
@@ -27,7 +27,7 @@ export default function RightNavbar() {
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
           >
-            <span aria-hidden="true">{each.icon}</span>
+            <span aria-hidden="true">{<Icon />}</span>
             <span className={styles.tooltip}>{each.label}</span>
           </a>
         );
