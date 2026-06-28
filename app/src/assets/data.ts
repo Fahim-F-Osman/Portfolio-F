@@ -1,13 +1,16 @@
 import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaFileAlt,
-  FaHome,
-  FaUser,
-  FaFolderOpen,
-  FaLaptopCode,
+  FaGithub, FaLinkedin, FaEnvelope, FaFileAlt,
+  FaHome, FaUser, FaFolderOpen, FaLaptopCode,
+  FaJava, FaPython, FaHtml5, FaCss3Alt,
+  FaReact, FaNodeJs, FaDocker, FaGitAlt,
+  FaAws, FaCode, FaServer, FaTasks
 } from "react-icons/fa";
+
+import {
+  SiJavascript, SiNextdotjs, SiExpress,
+  SiFlask, SiMysql, SiSqlite, SiMongodb,
+  SiPostgresql, SiPayloadcms,
+} from "react-icons/si";
 
 import { SiLeetcode } from "react-icons/si";
 
@@ -57,57 +60,57 @@ export const data = {
     {
       header: "Languages",
       tools: [
-        "C",
-        "Java",
-        "Python",
-        "JavaScript",
-        "HTML5",
-        "CSS",
+        { name: "C", icon: FaCode },
+        { name: "Java", icon: FaJava },
+        { name: "Python", icon: FaPython },
+        { name: "JavaScript", icon: SiJavascript },
+        { name: "HTML5", icon: FaHtml5 },
+        { name: "CSS", icon: FaCss3Alt },
       ],
     },
 
     {
       header: "Frontend",
       tools: [
-        "React",
-        "Next.js",
+        { name: "React", icon: FaReact },
+        { name: "Next.js", icon: SiNextdotjs },
       ],
     },
 
     {
       header: "Backend",
       tools: [
-        "Node.js",
-        "Express.js",
-        "Flask",
-        "REST APIs",
+        { name: "Node.js", icon: FaNodeJs },
+        { name: "Express.js", icon: SiExpress },
+        { name: "Flask", icon: SiFlask },
+        { name: "REST APIs", icon: FaServer },
       ],
     },
 
     {
       header: "Databases",
       tools: [
-        "MySQL",
-        "SQLite",
-        "MongoDB",
-        "PostgreSQL",
+        { name: "MySQL", icon: SiMysql },
+        { name: "SQLite", icon: SiSqlite },
+        { name: "MongoDB", icon: SiMongodb },
+        { name: "PostgreSQL", icon: SiPostgresql },
       ],
     },
 
     {
       header: "DevOps & Cloud",
       tools: [
-        "Git",
-        "Docker",
-        "AWS (Basic)",
+        { name: "Git", icon: FaGitAlt },
+        { name: "Docker", icon: FaDocker },
+        { name: "AWS", icon: FaAws },
       ],
     },
 
     {
       header: "Tools & Practices",
       tools: [
-        "Payload CMS",
-        "Agile",
+        { name: "Payload CMS", icon: SiPayloadcms },
+        { name: "Agile", icon: FaTasks },
       ],
     },
   ],
@@ -116,7 +119,6 @@ export const data = {
       title: "E2EE Messaging App",
       summary: "A real-time messaging application with end-to-end encryption.",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam corporis nam saepe! Excepturi esse, qui, illum assumenda sequi tenetur autem atque deserunt aspernatur officiis eum itaque. Vel assumenda adipisci perspiciatis. AGAIN: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam corporis nam saepe! Excepturi esse, qui, illum assumenda sequi tenetur autem atque deserunt aspernatur officiis eum itaque. Vel assumenda adipisci perspiciatis.",
-      icon: "🔒",
       techStack: ["Content System", "Amazon AWS", "React", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB", "Node.js", "MongoDB"],
       maxVisible: maxVisibleTechStack,
     },
@@ -125,7 +127,6 @@ export const data = {
       title: "Quiz Game",
       summary: "A multiplayer quiz platform.",
       description: "... Some Description",
-      icon: "🎮",
       techStack: ["React", "PostgreSQL"],
       maxVisible: maxVisibleTechStack,
     },
@@ -134,7 +135,6 @@ export const data = {
       title: "E-Commerce Website",
       summary: "An online store.",
       description: "... Some Description",
-      icon: "🛒",
       techStack: ["React", "Express.js"],
       maxVisible: maxVisibleTechStack,
     },

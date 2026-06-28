@@ -7,22 +7,23 @@ export default function SkillsSection() {
   const skills = data.skills;
 
   return (
-    <>
-      <div className={styles.cardList}>
-        {skills.map((group) => (
-          <div key={group.header} className={styles.card}>
-            <h3 className={styles.cardTitle}>{group.header}</h3>
-
-            <div className={styles.tools}>
-              {group.tools.map((tool) => (
-                <p key={tool} className={styles.tool}>
-                  {tool}
-                </p>
-              ))}
-            </div>
+    <div className={styles.cardList}>
+      {skills.map((group) => (
+        <div key={group.header} className={styles.card}>
+          <div className={styles.header}>
+            <h3 className={styles.title}>{group.header}</h3>
           </div>
-        ))}
-      </div>
-    </>
+
+          <div className={styles.tools}>
+            {group.tools.map(({ name, icon: Icon }) => (
+              <div key={name} className={styles.tool}>
+                <span className={styles.icon}><Icon/></span>
+                <span>{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

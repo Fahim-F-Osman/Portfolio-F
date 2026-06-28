@@ -13,7 +13,7 @@ import PaletteModal from "./PaletteModal/PaletteModal";
 export default function UtilityMenu() {
   const { theme, toggleTheme } = useTheme();
   
-  const [openPalette, setOpenPalette] = useState(true);
+  const [openPalette, setOpenPalette] = useState(false);
   const [openContact, setOpenContact] = useState(false);
   const themeButtonRef = useRef<HTMLButtonElement>(null);
 

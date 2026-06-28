@@ -12,9 +12,14 @@ type AboutHighlight = {
   description: string;
 };
 
+export type Skill = {
+  name: string;
+  icon: React.ComponentType;
+};
+
 export type SkillGroup = {
   header: string;
-  tools: string[];
+  tools: Skill[];
 };
 
 export type Project = {
@@ -24,8 +29,6 @@ export type Project = {
 
   image?: string;
   link?: string;
-
-  icon?: string;
 
   techStack: string[];
 
