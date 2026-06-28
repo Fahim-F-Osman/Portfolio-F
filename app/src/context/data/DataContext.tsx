@@ -51,6 +51,11 @@ export type Section = {
   icon: React.ComponentType;
 };
 
+export interface Palettes {
+  id: string;
+  name: string;
+}
+
 export type Data = {
   hero: Hero;
   about: string[];
@@ -65,6 +70,7 @@ export type DataContextType = {
   data: Data;
   setData: (value: Data) => void;
   sections: Section[];
+  palettes: Palettes[];
 };
 
 export const DataContext = createContext<DataContextType | undefined>(undefined);

@@ -54,7 +54,6 @@
   background: var(--accent);
   
   padding: var(--space-4) var(--space-7);  
-  border: 1px solid red;
 
   font-size: var(--fs-sm);
   font-weight: bolder;
