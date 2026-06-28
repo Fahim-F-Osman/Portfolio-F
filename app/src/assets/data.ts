@@ -11,7 +11,6 @@ import {
 
 import { SiLeetcode } from "react-icons/si";
 
-
 export const maxVisibleTechStack = 4;
 
 export const sections = [
@@ -21,6 +20,15 @@ export const sections = [
   { id: "projects", icon: FaFolderOpen, label: "Projects" },
   { id: "resume", icon: FaFileAlt, label: "Resume" },
   { id: "contact", icon: FaEnvelope, label: "Contact" },
+];
+
+export const PALETTES = [
+  { id: "default", name: "Default" },
+  { id: "crimson", name: "Crimson" },
+  { id: "emerald", name: "Emerald" },
+  { id: "amber", name: "Amber" },
+  { id: "rose", name: "Rose" },
+  { id: "ocean", name: "Ocean" },
 ];
 
 export const data = {

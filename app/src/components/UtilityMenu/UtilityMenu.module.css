@@ -18,9 +18,10 @@
   border-radius: var(--radius-full);
 
   box-shadow: var(--shadow-md);
+  
 }
 
-.container > button {
+.utilityButton {
   width: 36px;
   height: 34px;
 
@@ -42,7 +43,7 @@
     border-color var(--transition-fast);
 }
 
-.container > button > svg {
+.utilityButton > svg {
   width: 20px;
   height: 20px;
   color: var(--text-primary);
@@ -50,23 +51,23 @@
   transition: color var(--transition-fast);
 }
 
-.container > button:hover {
-  transform: translateY(-2px);
+.utilityButton:hover {
   background: var(--surface);
   border-color: var(--border-glass);
   box-shadow: var(--shadow-sm);
+
 }
 
-.container > button:hover > svg {
+.utilityButton:hover > svg {
   color: var(--accent);
 }
 
-.container > button:active {
+.utilityButton:active {
   transform: translateY(0px) scale(0.98);
   box-shadow: none;
 }
 
-.container > button svg {
+.utilityButton svg {
   animation: pop var(--transition-normal);
 }
 
@@ -81,8 +82,8 @@
   }
 }
 
-.container > .contactsButton { display: none; }
-
+.container > .contactsButton { display: flex; }
+.paletteWrapper { position: relative; }
 
 @media (max-width: 768px) {
   .container > .contactsButton {
@@ -90,3 +91,4 @@
   }
 
 }
+

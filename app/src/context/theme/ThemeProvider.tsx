@@ -5,14 +5,16 @@ import type { Theme, Palette } from "./themeTypes";
 const THEME_KEY = "theme";
 const PALETTE_KEY = "palette";
 
+const DEFAULT_THEME: Theme = "light";
+const DEFAULT_PALETTE: Palette = "default";
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    const stored = localStorage.getItem(THEME_KEY) as Theme | null;
-    return stored || "light";
+    return (localStorage.getItem(THEME_KEY) as Theme) || DEFAULT_THEME;
   });
 
   const [palette, setPaletteState] = useState<Palette>(() => {
-    return localStorage.getItem(PALETTE_KEY) || "";
+    return (localStorage.getItem(PALETTE_KEY) as Palette) || DEFAULT_PALETTE;
   });
 
   useEffect(() => {
